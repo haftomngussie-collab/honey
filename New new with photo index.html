@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title></title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffdf7;
+      color: #333;
+      line-height: 1.6;
+    }
+    .topnav {
+      background-color: #D4A017;
+      overflow: hidden;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .topnav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+      transition: background-color 0.3s;
+    }
+    .topnav a:hover {
+      background-color: #b38f05;
+      color: white;
+    }
+    .topnav .icon {
+      display: none;
+      float: right;
+      padding: 14px 16px;
+      cursor: pointer;
+    }
+    header {
+      position: relative;
+      text-align: center;
+      color: #D4A017;
+      height: 60vh;
+      background-image: url('https://z-p3-scontent.fadd1-1.fna.fbcdn.net/v/t39.30808-6/504102337_4039803389570002_9154383606675044217_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeF7GBpcHiXbjSsBTVN-7QaEb0NHwlSdwTtvQ0fCVJ3BO1WRYkZry4rmG-m5ofF7vA8zq4LYUs7HHlUZB8_Gjhbs&_nc_ohc=-mSDFG17gsEQ7kNvwFRDyjj&_nc_oc=AdmCUpVb_jNvRXuMIND44lSW-Z6SFJ00ph3qTuumuGYBbqA2EFK2bU8Yy8DzM1dfKnc&_nc_zt=23&_nc_ht=z-p3-scontent.fadd1-1.fna&_nc_gid=ketZ46uCnMWaf-xQkLrEvg&oh=00_AfeYQUt97p7l7T9LLl00E1CWNC0o6WbOjUqbWuABkE5HhA&oe=68F94BCC');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(80%);
+    }
+    header .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    header h1 {
+      color: white !important;
+      font-size: 2.5em;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      margin: 0;
+    }
+    header p.tagline {
+      color: white !important;
+      font-size: 1.875em; /* 25% smaller than 2.5em */
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      margin-top: 0;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #D4A017;
+      border-bottom: 2px solid #D4A017;
+      padding-bottom: 5px;
+      margin-top: 60px;
+    }
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    a {
+      color: #D4A017;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-info {
+      flex: 1 1 60%;
+    }
+    .contact-phone {
+      flex: 1 1 35%;
+      text-align: right;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    @media screen and (max-width: 768px) {
+      .topnav a:not(:first-child) {display: none;}
+      .topnav a.icon {
+        display: block;
+      }
+      .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .contact-phone {
+        text-align: left;
+        flex: 1 1 100%;
+      }
+    }
+    footer {
+      background-color: #f6e7b2;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.95em;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .gallery-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .gallery-text {
+      flex: 1 1 50%;
+      min-width: 280px;
+    }
+    .gallery-img {
+      flex: 1 1 40%;
+      max-width: 400px;
+      float: right;
+    }
+    @media screen and (max-width: 768px) {
+      .gallery-content {
+        flex-direction: column;
+      }
+      .gallery-img, .gallery-text {
+        flex: 1 1 100%;
+        max-width: 100%;
+        float: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav" id="myTopnav">
+    <a href="#about-haftom" class="active">About</a>
+    <a href="#tigray-honey">Tigray Honey</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</a>
+  </nav>
+
+  <header>
+    <div class="overlay">
+      <h1>Tigray Honey</h1>
+      <p class="tagline">100% Pure &amp; Natural — by Haftom Gebremedhn (PhD).</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="about-haftom">
+      <h2>About the Supplier and Mission</h2>
+      <p>
+        With a PhD in Honeybee Health, Dr. Haftom Gebremedhn combines deep scientific knowledge with more than 18 years of practical experience in apiculture. As a passionate honey supplier from [translate:Tigray], Ethiopia, he is dedicated to promoting 100% pure and natural honey sourced from the region’s diverse floral landscapes.
+      </p>
+      <p>
+        Over the years, Dr. Haftom has built a strong network with local beekeepers, providing hands-on coaching on how to harvest, handle, and store high-quality honey, as well as training on seasonal colony management. He has contributed to publishing more than 23 beekeeping research findings in reputable international journals 
+        (<a href="https://orcid.org/0000-0001-8565-6065" target="_blank" rel="noopener noreferrer">ORCID Profile</a>) and has authored books and practical manuals written in local languages to support and educate beekeepers.
+      </p>
+      <p>
+        He has also received international training certificates in modern beekeeping from Ghent University (Belgium) and the Hebrew University of Jerusalem (Israel). In addition, Dr. Haftom actively supports academic development by advising and teaching MSc students in beekeeping and related fields.
+      </p>
+      <p>
+        His mission is to ensure that every drop of honey he supplies reflects the purity of [translate:Tigray]’s natural environment while supporting and empowering the rural beekeeping communities who make it possible.
+      </p>
+    </section>
+
+    <section id="tigray-honey">
+      <h2>About Tigray’s Honey</h2>
+      <p>
+        Discover the unique taste of [translate:Tigray]’s 100% pure and natural honey. Harvested from the rich and diverse flora of northern Ethiopia, our honey comes in several distinct varieties, each with its own unique floral aroma, smooth texture, and exceptional flavor:
+      </p>
+      <ul>
+        <li>Water White</li>
+        <li>Extra White</li>
+        <li>White</li>
+        <li>Extra Light Amber</li>
+        <li>Light Amber</li>
+        <li>Amber</li>
+      </ul>
+      <p>
+        Well known for its purity, nutritional richness, and natural healing properties, [translate:Tigray] honey is more than just sweet — it’s a tradition, a health booster, and a taste of nature at its best.
+      </p>
+    </section>
+
+    <section id="gallery">
+      <h2>Photo &amp; Video Gallery</h2>
+      <div class="gallery-content">
+        <div class="gallery-text">
+          <p>
+            To explore the variety of [translate:Tigray]’s honey and place orders based on color, please visit the gallery below.
+          </p>
+          <blockquote class="imgur-embed-pub" lang="en" data-id="a/HxE0hZs" data-context="false" >
+            <a href="//imgur.com/a/HxE0hZs"></a>
+          </blockquote>
+          <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+        </div>
+        <div class="gallery-img">
+          <img src="https://z-p3-scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/558896396_4166492253567781_4878820553116349159_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGwrCOeN4WTsjW3i412MmjSjP-u_kgtQOGM_67-SC1A4Tel80_fx9SyDYB3LLxC1r1jzfNVCvZ3VCNyZl_YvS91&_nc_ohc=XWFaneyd_eoQ7kNvwExI47x&_nc_oc=AdmWk2XwA3ci-mYwlAmqxIfYIUi8H-sS9E0XMCRn_9lSeT-foEk_-uR-7SzWK_YpxIA&_nc_zt=23&_nc_ht=z-p3-scontent.fadd2-1.fna&_nc_gid=dypprPDZbLmZjCB54nem-A&oh=00_Afe07bAtGTGlWbA5GZEZemR8wCYnE8HyxjRj8_x5E9ueJQ&oe=68FAAD3D" alt="Highlight of our honey" style="max-width: 100%; height: auto; margin-left: 15px; float: right;">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><strong>Want to enjoy our natural Tigray honey? Place your order using the contacts below! We deliver fresh honey anywhere in Mekelle and beyond — just order, and we’ll deliver with care.</strong></p>
+      <div class="contact-row">
+        <div class="contact-info">
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/251914768319" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
+          <p><strong>IMO:</strong> <a href="https://wa.me/251914768319" target="_blank" rel="noopener noreferrer">Connect on IMO</a></p>
+          <p><strong>Email:</strong> <a href="mailto:haftush@yahoo.com">haftush@yahoo.com</a></p>
+          <p><strong>Facebook:</strong> <a href="https://web.facebook.com/haftomgebremedhn.ngussie.9" target="_blank" rel="noopener noreferrer">Visit Facebook Page</a></p>
+          <p><strong>Location:</strong> Lachi Hadush Mender, Mekelle, Tigray, Ethiopia</p>
+        </div>
+        <div class="contact-phone">
+          <p><strong>Phone:</strong> <a href="tel:+251914768319">+251914768319</a> / <a href="tel:+251935815020">+251935815020</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Haftom Bee – Tigray Honey | All Rights Reserved
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("myTopnav");
+      if (nav.className === "topnav") {
+        nav.className += " responsive";
+      } else {
+        nav.className = "topnav";
+      }
+    }
+  </script>
+
+</body>
+</html>
